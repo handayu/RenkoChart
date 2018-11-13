@@ -192,7 +192,7 @@ namespace RenkoChart
 
                 double commisionValue = 0.00;
                 double.TryParse(this.textBox_EvetyLoss.Text, out commisionValue);
-
+                    
                 double openshares = 0.00;
                 double.TryParse(this.textBox_OpenShares.Text, out openshares);
 
