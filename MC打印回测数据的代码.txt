@@ -1,0 +1,21 @@
+var:
+  MP(0),
+  LastTradeProfitPoint(0);
+     
+MP = marketposition;  
+   
+if (MP[1] = 0 OR MP[1] = -1) and MP = 1  then begin
+   value1 = 1;
+   LastTradeProfitPoint = entryprice(1) - exitprice(1);
+   if close - open >0 then print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));    
+   if close - open <0 then print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "-1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));    
+end;
+    
+if (MP[1] = 0 OR MP[1] = 1) and MP = -1 then begin   
+   value1 = -1; 
+   LastTradeProfitPoint =exitprice(1) - entryprice(1);
+   if close - open <0 then  print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "-1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));     
+   if close - open >0 then  print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));     
+end; 
+
+   
