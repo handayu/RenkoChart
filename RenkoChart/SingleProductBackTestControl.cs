@@ -195,7 +195,7 @@ namespace RenkoChart
                     
                 double openshares = 0.00;
                 double.TryParse(this.textBox_OpenShares.Text, out openshares);
-
+                  
                 for (int i = 0; i < m_tradeList.Count; i++)
                 {
                     noAddRenkoButAddCommisonQualitySeries = noAddRenkoButAddCommisonQualitySeries + m_tradeList[i].LastCloseProfit - commisionValue;
