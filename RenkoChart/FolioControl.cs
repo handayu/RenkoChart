@@ -40,7 +40,7 @@ namespace RenkoChart
             this.radioButton_moneyCal.Checked = true;
             this.radioButton_pointCal.Checked = false;
             this.textBox_initQuality.Text = "0.00";
-        }
+        }    
 
         public void Cal()
         {
