@@ -57,6 +57,12 @@
     <Compile Include="FolioControl.Designer.cs">
       <DependentUpon>FolioControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="HedgeAnalysisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HedgeAnalysisControl.Designer.cs">
+      <DependentUpon>HedgeAnalysisControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Help.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FolioControl.resx">
       <DependentUpon>FolioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HedgeAnalysisControl.resx">
+      <DependentUpon>HedgeAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help.resx">
       <DependentUpon>Help.cs</DependentUpon>

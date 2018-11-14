@@ -11,3 +11,4 @@ C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\Debug\RenkoChart.exe
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\Debug\RenkoChart.pdb
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\Debug\RenkoChart.FolioControl.resources
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\Debug\RenkoChart.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\Debug\RenkoChart.HedgeAnalysisControl.resources
