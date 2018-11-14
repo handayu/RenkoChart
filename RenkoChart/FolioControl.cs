@@ -118,7 +118,7 @@ namespace RenkoChart
                     double.TryParse(kv.Value.StrategyOpenShares, out openshares);
                     double commision = 0.00;
                     double.TryParse(kv.Value.StrategyCommisionSet, out commision);
-                    addRenkoAddCommisonQualitySeries = addRenkoAddCommisonQualitySeries + (tradeList[i].LastCloseProfit - commision - tradeList[i].RenkoCommision*2) * tradeList[i].BigPointValue;
+                    addRenkoAddCommisonQualitySeries = addRenkoAddCommisonQualitySeries + (tradeList[i].LastCloseProfit - commision + tradeList[i].RenkoCommision*2) * tradeList[i].BigPointValue;
                     double quality = addRenkoAddCommisonQualitySeries * openshares;
                     this.chart1.Series[pathName].Points.AddXY(i, quality);
 
