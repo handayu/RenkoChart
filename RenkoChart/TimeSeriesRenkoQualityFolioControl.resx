@@ -117,56 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>在MC中加载以下代码，以获得所有的交易盈亏以及信号信息(还包括开仓当根的开仓方向状态和K线走向，以便于知道该笔单子是否需要在盈亏的基础上加入一块砖的成本)：
-var:
-  MP(0),
-  LastTradeProfitPoint(0);
-     
-MP = marketposition;  
-   
-if (MP[1] = 0 OR MP[1] = -1) and MP = 1  then begin
-   value1 = 1;
-   LastTradeProfitPoint = entryprice(1) - exitprice(1);
-   if close - open &gt;0 then print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));    
-   if close - open &lt;0 then print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "-1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));    
-end;
-    
-if (MP[1] = 0 OR MP[1] = 1) and MP = -1 then begin
-   value1 = -1; 
-   LastTradeProfitPoint =exitprice(1) - entryprice(1);
-   if close - open &lt;0 then  print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "-1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));     
-   if close - open &gt;0 then  print(symbolname,"_","BarNum:",currentbar+MaxBarsBack,"_", "1","_",value1,"_",LastTradeProfitPoint,"_",bigpointvalue,"_",absvalue(Open-Close));     
-end;
- 
-1.加载策略时同时加载该脚本进行统计，然后在输出中复制出所有记录到外部Txt中，用工具获取开始分析,
-没有加入砖成本和手续费的资金或者点值曲线，应该和MC中回测(无手续费)的资金曲线走向一模一样，
-但在加入了可能的砖的成本之后，资金曲线有所打折，分析打折的资金曲线是否是需要的资金曲线。
-2.本工具可以同时设置好txt的路径，treeview中添加多个txt回测结果，多品种进行分析，分析完成之后，
-还可以对多品种进行砖+手续费成本剔除之后的砖型图策略的投资组合资金曲线分析。   
-    
-
-PS:
-   关于菜单栏第二项的功能：   在MC中是没有砖型图策略的组合回测的，而简单通过笔数叠加存在的一个问题是不是真正意义上的组合对冲绩效，因为不同的笔数分布在不同的时间，
-无法看到真正的组合如果只是通过笔数叠加的话，所以在MC打印交易的时候，可以带上时间戳，根据时间戳做出真正的组合曲线 ；
-获取TradeInfo每天最后一条记录代表该策略当天的收益最终资金，然后把其他空缺的日期按照前一笔进行补齐
-形成最终的以时间为TimeSeries的资金曲线，横坐标为整日日期，而不再是按笔的资金曲线，然后整合成组合;
-var:
-  MP(0),
-  LastTradeProfitPoint(0),   
-  Quality(0); 
-     
-MP = marketposition;  
-   
-if (MP[1] = 0 OR MP[1] = -1) and MP = 1  then begin
-   Quality = Quality + positionprofit(1);
-   print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1));    
-end;
-    
-if (MP[1] = 0 OR MP[1] = 1) and MP = -1 then begin   
-      Quality = Quality + positionprofit(1);
-   print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1));     
-end; 
-</value>
-  </data>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column10.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

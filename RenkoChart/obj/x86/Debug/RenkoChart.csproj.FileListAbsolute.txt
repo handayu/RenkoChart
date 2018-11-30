@@ -1,0 +1,16 @@
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\bin\x86\Debug\RenkoChart.exe.config
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\bin\x86\Debug\RenkoChart.exe
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\bin\x86\Debug\RenkoChart.pdb
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.AddStrategyTextPathForm.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.FolioControl.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.HedgeAnalysisControl.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.Help.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.PortfolioBackTest.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.SingleProductBackTestControl.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.TimeSeriesRenkoPortfolioForm.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.TimeSeriesRenkoQualityFolioControl.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.exe
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.pdb

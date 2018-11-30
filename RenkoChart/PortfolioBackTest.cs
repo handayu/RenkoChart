@@ -118,5 +118,10 @@ namespace RenkoChart
             this.singleProductBackTestControl1.SetExitsData(info, pathName);
         }
 
+        private void ToolStripMenuItem_RenkoSeries_Click(object sender, EventArgs e)
+        {
+            TimeSeriesRenkoPortfolioForm holder = new TimeSeriesRenkoPortfolioForm();
+            holder.Show();
+        }
     }
 }

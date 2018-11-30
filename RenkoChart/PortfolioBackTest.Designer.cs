@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("----策略组");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("----策略组");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView_Strategy = new System.Windows.Forms.ListView();
             this.策略 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -41,6 +41,7 @@
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.singleProductBackTestControl1 = new RenkoChart.SingleProductBackTestControl();
             this.folioControl1 = new RenkoChart.FolioControl();
+            this.ToolStripMenuItem_RenkoSeries = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -65,7 +66,7 @@
             this.listView_Strategy.ContextMenuStrip = this.contextMenuStrip1;
             this.listView_Strategy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView_Strategy.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView_Strategy.Location = new System.Drawing.Point(3, 19);
             this.listView_Strategy.Name = "listView_Strategy";
             this.listView_Strategy.Size = new System.Drawing.Size(160, 601);
@@ -100,7 +101,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.使用帮助ToolStripMenuItem});
+            this.使用帮助ToolStripMenuItem,
+            this.ToolStripMenuItem_RenkoSeries});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1170, 25);
@@ -118,7 +120,7 @@
             // ToolStripMenuItem_Help
             // 
             this.ToolStripMenuItem_Help.Name = "ToolStripMenuItem_Help";
-            this.ToolStripMenuItem_Help.Size = new System.Drawing.Size(112, 22);
+            this.ToolStripMenuItem_Help.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_Help.Text = "说明档";
             this.ToolStripMenuItem_Help.Click += new System.EventHandler(this.ToolStripMenuItem_Click_Help);
             // 
@@ -135,6 +137,13 @@
             this.folioControl1.Name = "folioControl1";
             this.folioControl1.Size = new System.Drawing.Size(884, 566);
             this.folioControl1.TabIndex = 10;
+            // 
+            // ToolStripMenuItem_RenkoSeries
+            // 
+            this.ToolStripMenuItem_RenkoSeries.Name = "ToolStripMenuItem_RenkoSeries";
+            this.ToolStripMenuItem_RenkoSeries.Size = new System.Drawing.Size(140, 21);
+            this.ToolStripMenuItem_RenkoSeries.Text = "砖图时间序列投资组合";
+            this.ToolStripMenuItem_RenkoSeries.Click += new System.EventHandler(this.ToolStripMenuItem_RenkoSeries_Click);
             // 
             // PortfolioBackTest
             // 
@@ -172,5 +181,6 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_AddStrategy;
         private SingleProductBackTestControl singleProductBackTestControl2;
         private FolioControl folioControl1;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_RenkoSeries;
     }
 }
