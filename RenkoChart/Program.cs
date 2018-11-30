@@ -12,27 +12,27 @@ namespace RenkoChart
     {
         static void Main(string[] args)
         {
-            //MenuData();
+            MenuData();
 
-            //bool conectResult = CheckPing();
-            //if(conectResult)
-            //{
-            //    Console.WriteLine(">>开始连接云服务器......");
-            //    System.Threading.Thread.Sleep(1000);
-            //    Console.WriteLine(">>连接云服务器成功......");
+            bool conectResult = CheckPing();
+            if (conectResult)
+            {
+                Console.WriteLine(">>开始连接云服务器......");
+                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine(">>连接云服务器成功......");
 
-            //    PrintData();
+                PrintData();
 
-            //    Console.ReadKey();
-            //}
-            //else
-            //{
-            //    Console.WriteLine(">>开始连接云服务器......");
-            //    Console.WriteLine(">>连接云服务器失败......");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine(">>开始连接云服务器......");
+                Console.WriteLine(">>连接云服务器失败......");
 
-            //    Console.ReadKey();
-            //    return;
-            //}
+                Console.ReadKey();
+                return;
+            }
 
             //打开主项目
             PortfolioBackTest f = new PortfolioBackTest();
