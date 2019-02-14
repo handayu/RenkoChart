@@ -56,6 +56,8 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox_OpenShares = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_Symbol = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,8 +71,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_allTradeCout = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox_OpenShares = new System.Windows.Forms.TextBox();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -93,6 +93,7 @@
             // 
             // chart1
             // 
+            chartArea1.AxisY.ScaleBreakStyle.Spacing = 0.5D;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -103,16 +104,17 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
-            series1.Name = "不加砖成本的资金曲线";
+            series1.Name = "原始资金曲线";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "Legend1";
-            series2.Name = "加入砖成本的资金曲线";
+            series2.Name = "真实资金曲线";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(999, 288);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
+            this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Chart1_MouseClick);
             // 
             // groupBox3
             // 
@@ -177,15 +179,15 @@
             // 
             // textBox_EvetyLoss
             // 
-            this.textBox_EvetyLoss.Location = new System.Drawing.Point(435, 17);
+            this.textBox_EvetyLoss.Location = new System.Drawing.Point(447, 17);
             this.textBox_EvetyLoss.Name = "textBox_EvetyLoss";
-            this.textBox_EvetyLoss.Size = new System.Drawing.Size(144, 21);
+            this.textBox_EvetyLoss.Size = new System.Drawing.Size(132, 21);
             this.textBox_EvetyLoss.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(286, 20);
+            this.label2.Location = new System.Drawing.Point(290, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 12);
             this.label2.TabIndex = 10;
@@ -314,6 +316,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "策略设置";
             // 
+            // textBox_OpenShares
+            // 
+            this.textBox_OpenShares.Location = new System.Drawing.Point(510, 50);
+            this.textBox_OpenShares.Name = "textBox_OpenShares";
+            this.textBox_OpenShares.Size = new System.Drawing.Size(69, 21);
+            this.textBox_OpenShares.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(445, 53);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 12);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "开仓手数:";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox_Symbol);
@@ -436,22 +454,6 @@
             this.label1.Size = new System.Drawing.Size(71, 12);
             this.label1.TabIndex = 13;
             this.label1.Text = "总交易笔数:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(445, 53);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 12);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "开仓手数:";
-            // 
-            // textBox_OpenShares
-            // 
-            this.textBox_OpenShares.Location = new System.Drawing.Point(510, 50);
-            this.textBox_OpenShares.Name = "textBox_OpenShares";
-            this.textBox_OpenShares.Size = new System.Drawing.Size(69, 21);
-            this.textBox_OpenShares.TabIndex = 16;
             // 
             // SingleProductBackTestControl
             // 

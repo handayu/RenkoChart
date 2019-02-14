@@ -123,5 +123,28 @@ namespace RenkoChart
             TimeSeriesRenkoPortfolioForm holder = new TimeSeriesRenkoPortfolioForm();
             holder.Show();
         }
+
+        private bool m_isView = true;
+
+        /// <summary>
+        /// 显示详细或者隐藏详细布局
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItem_SeeOrVisual_Click(object sender, EventArgs e)
+        {
+            if(m_isView)
+            {
+                this.singleProductBackTestControl1.NoVisualLayOut();
+                this.singleProductBackTestControl1.NoVisualNoNeedRenkoSeries();
+                m_isView = false;
+            }
+            else
+            {
+                this.singleProductBackTestControl1.VisualLayOut();
+                this.singleProductBackTestControl1.VisualNoNeedRenkoSeries();
+                m_isView = true;
+            }
+        }
     }
 }

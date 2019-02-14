@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace RenkoChart
 {
@@ -28,6 +29,23 @@ namespace RenkoChart
             this.dataGridView_List.DataSource = m_tradeList;
 
             SetDefultData();
+
+            this.m_LabelHighLocation = this.label3.Location;
+            this.m_LabelLossLocation = this.label2.Location;
+
+            this.m_TextHighLocation = this.textBox_RenkoHigh.Location;
+            this.m_TextLossLocation = this.textBox_EvetyLoss.Location;
+
+            this.chart1.Series["真实资金曲线"].Color = Color.Red;
+            //this.chart1.Series["真实资金曲线"].BorderWidth = 1;
+            //设置游标
+            this.chart1.ChartAreas[0].CursorX.IsUserEnabled = true;
+            this.chart1.ChartAreas[0].CursorX.AutoScroll = true;
+            this.chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+
+            this.chart1.ChartAreas[0].CursorY.IsUserEnabled = true;
+            this.chart1.ChartAreas[0].CursorY.AutoScroll = true;
+            this.chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
         }
 
         private string m_pathName = string.Empty;
@@ -156,6 +174,20 @@ namespace RenkoChart
             }
         }
 
+        private void Chart1_MouseClick(object sender, MouseEventArgs e)
+        {
+            HitTestResult myTestResult = chart1.HitTest(e.X, e.Y);
+            if (myTestResult.ChartElementType == ChartElementType.DataPoint)
+            {
+                int i = myTestResult.PointIndex;
+                DataPoint dp = myTestResult.Series.Points[i];
+                double doubleXValue = (dp.XValue);
+                double doubleYValue = dp.YValues[0];
+
+                //toolTip1.SetToolTip(this.chart1, doubleXValue.ToString() + "---" + doubleYValue.ToString());
+            }
+        }
+
         private void SetDefultData()
         {
             this.textBox_EvetyLoss.Text = "0";
@@ -199,14 +231,14 @@ namespace RenkoChart
                 for (int i = 0; i < m_tradeList.Count; i++)
                 {
                     noAddRenkoButAddCommisonQualitySeries = noAddRenkoButAddCommisonQualitySeries + m_tradeList[i].LastCloseProfit - commisionValue;
-                    this.chart1.Series["不加砖成本的资金曲线"].Points.AddXY(i, noAddRenkoButAddCommisonQualitySeries* openshares);
+                    this.chart1.Series["原始资金曲线"].Points.AddXY(i, noAddRenkoButAddCommisonQualitySeries* openshares);
                 }
 
                 double addRenkoAddCommisonQualitySeries = 0.00;
                 for (int i = 0; i < m_tradeList.Count; i++)
                 {
                     addRenkoAddCommisonQualitySeries = addRenkoAddCommisonQualitySeries + m_tradeList[i].LastCloseProfit - commisionValue + m_tradeList[i].RenkoCommision*2;
-                    this.chart1.Series["加入砖成本的资金曲线"].Points.AddXY(i, addRenkoAddCommisonQualitySeries* openshares);
+                    this.chart1.Series["真实资金曲线"].Points.AddXY(i, addRenkoAddCommisonQualitySeries* openshares);
                 }
             }
 
@@ -252,6 +284,62 @@ namespace RenkoChart
             StrategyInfo.AddStratgyInfo(m_pathName, info);
 
             this.Focus();
+        }
+
+        private Point m_LabelLossLocation = new Point();
+        private Point m_TextLossLocation = new Point();
+
+        private Point m_LabelHighLocation = new Point();
+        private Point m_TextHighLocation = new Point();
+
+        /// <summary>
+        /// 隐藏布局
+        /// </summary>
+        public void NoVisualLayOut()
+        {
+            this.label3.Visible = false;
+            this.textBox_RenkoHigh.Visible = false;
+            this.label8.Visible = false;
+            this.textBox_needRenkoNum.Visible = false;
+            this.groupBox4.Visible = false;
+            this.dataGridView_List.Visible = false;
+
+            //隐藏，控件左对齐
+            this.label2.Location = m_LabelHighLocation;
+            this.textBox_EvetyLoss.Location = m_TextHighLocation;
+        }
+
+        /// <summary>
+        /// 显示布局
+        /// </summary>
+        public void VisualLayOut()
+        {
+            //左对齐的控件往右，以便下面显示展开
+            this.label2.Location = m_LabelLossLocation;
+            this.textBox_EvetyLoss.Location = m_TextLossLocation;
+
+            this.label3.Visible = true;
+            this.textBox_RenkoHigh.Visible = true;
+            this.label8.Visible = true;
+            this.textBox_needRenkoNum.Visible = true;
+            this.groupBox4.Visible = true;
+            this.dataGridView_List.Visible = true;
+        }
+
+        /// <summary>
+        /// 不显示不加砖的资金曲线
+        /// </summary>
+        public void NoVisualNoNeedRenkoSeries()
+        {
+            this.chart1.Series["原始资金曲线"].Enabled = false;
+        }
+
+        /// <summary>
+        /// 显示加砖的资金曲线
+        /// </summary>
+        public void VisualNoNeedRenkoSeries()
+        {
+            this.chart1.Series["原始资金曲线"].Enabled = true;
         }
 
         private void RadioCheckChanged(object sender, EventArgs e)
