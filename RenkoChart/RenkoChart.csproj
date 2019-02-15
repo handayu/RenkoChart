@@ -145,6 +145,9 @@
     <EmbeddedResource Include="PortfolioBackTest.resx">
       <DependentUpon>PortfolioBackTest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PortfolioBackTest.sq.resx">
+      <DependentUpon>PortfolioBackTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SingleProductBackTestControl.resx">
       <DependentUpon>SingleProductBackTestControl.cs</DependentUpon>
     </EmbeddedResource>

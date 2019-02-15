@@ -17,7 +17,6 @@ namespace RenkoChart
         {
             InitializeComponent();
 
-            this.folioControl1.Visible = false;
             this.singleProductBackTestControl1.Visible = true;
             this.singleProductBackTestControl1.Dock = DockStyle.Fill;
         }
@@ -84,8 +83,6 @@ namespace RenkoChart
                     this.singleProductBackTestControl1.Visible = true;
                     this.singleProductBackTestControl1.Dock = DockStyle.Fill;
 
-                    this.folioControl1.Visible = false;
-
                     if (!StrategyInfo.StrategyInfoDic.ContainsKey(pathName))
                     {
                         HoldSingleStrategyDataAndSet(pathName);
@@ -102,11 +99,11 @@ namespace RenkoChart
                 //总的投资组合
                 if (pathName == "----策略组")
                 {
-                    this.singleProductBackTestControl1.Visible = false;
-                    this.folioControl1.Dock = DockStyle.Fill;
-                    this.folioControl1.Visible = true;
+                    //this.singleProductBackTestControl1.Visible = false;
+                    //this.folioControl1.Dock = DockStyle.Fill;
+                    //this.folioControl1.Visible = true;
 
-                    this.folioControl1.Cal();
+                    //this.folioControl1.Cal();
                 }
             }
             catch (Exception ex)
