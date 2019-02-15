@@ -39,15 +39,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(119, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "TXT全路径:";
+            this.label1.Text = "策略数据文件夹路径:";
             // 
             // textBox_Path
             // 
-            this.textBox_Path.Location = new System.Drawing.Point(84, 10);
+            this.textBox_Path.Location = new System.Drawing.Point(138, 10);
             this.textBox_Path.Name = "textBox_Path";
-            this.textBox_Path.Size = new System.Drawing.Size(373, 21);
+            this.textBox_Path.Size = new System.Drawing.Size(319, 21);
             this.textBox_Path.TabIndex = 1;
             // 
             // button_OK
@@ -65,9 +65,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 12);
+            this.label2.Size = new System.Drawing.Size(95, 12);
             this.label2.TabIndex = 3;
-            this.label2.Text = "例如:C:\\Users\\Administrator\\Desktop\\ru.txt";
+            this.label2.Text = "例如:X:\\xxx\\xxx";
             // 
             // AddStrategyTextPathForm
             // 
@@ -79,7 +79,7 @@
             this.Controls.Add(this.textBox_Path);
             this.Controls.Add(this.label1);
             this.Name = "AddStrategyTextPathForm";
-            this.Text = "添加策略(指定MC复制出来的交易记录的Txt全路径)";
+            this.Text = "添加策略(自动添加文件夹下所有.txt策略文件数据)";
             this.ResumeLayout(false);
             this.PerformLayout();
 

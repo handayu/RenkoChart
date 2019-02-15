@@ -40,10 +40,11 @@
             this.使用帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_RenkoSeries = new System.Windows.Forms.ToolStripMenuItem();
-            this.singleProductBackTestControl1 = new RenkoChart.SingleProductBackTestControl();
-            this.folioControl1 = new RenkoChart.FolioControl();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_SeeOrVisual = new System.Windows.Forms.ToolStripMenuItem();
+            this.singleProductBackTestControl1 = new RenkoChart.SingleProductBackTestControl();
+            this.folioControl1 = new RenkoChart.FolioControl();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -123,7 +124,7 @@
             // ToolStripMenuItem_Help
             // 
             this.ToolStripMenuItem_Help.Name = "ToolStripMenuItem_Help";
-            this.ToolStripMenuItem_Help.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_Help.Size = new System.Drawing.Size(112, 22);
             this.ToolStripMenuItem_Help.Text = "说明档";
             this.ToolStripMenuItem_Help.Click += new System.EventHandler(this.ToolStripMenuItem_Click_Help);
             // 
@@ -133,6 +134,21 @@
             this.ToolStripMenuItem_RenkoSeries.Size = new System.Drawing.Size(116, 21);
             this.ToolStripMenuItem_RenkoSeries.Text = "时间序列投资组合";
             this.ToolStripMenuItem_RenkoSeries.Click += new System.EventHandler(this.ToolStripMenuItem_RenkoSeries_Click);
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_SeeOrVisual});
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.设置ToolStripMenuItem.Text = "设置";
+            // 
+            // ToolStripMenuItem_SeeOrVisual
+            // 
+            this.ToolStripMenuItem_SeeOrVisual.Name = "ToolStripMenuItem_SeeOrVisual";
+            this.ToolStripMenuItem_SeeOrVisual.Size = new System.Drawing.Size(129, 22);
+            this.ToolStripMenuItem_SeeOrVisual.Text = "显示/隐藏";
+            this.ToolStripMenuItem_SeeOrVisual.Click += new System.EventHandler(this.ToolStripMenuItem_SeeOrVisual_Click);
             // 
             // singleProductBackTestControl1
             // 
@@ -148,20 +164,13 @@
             this.folioControl1.Size = new System.Drawing.Size(884, 566);
             this.folioControl1.TabIndex = 10;
             // 
-            // 设置ToolStripMenuItem
+            // backgroundWorker1
             // 
-            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_SeeOrVisual});
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.设置ToolStripMenuItem.Text = "设置";
-            // 
-            // ToolStripMenuItem_SeeOrVisual
-            // 
-            this.ToolStripMenuItem_SeeOrVisual.Name = "ToolStripMenuItem_SeeOrVisual";
-            this.ToolStripMenuItem_SeeOrVisual.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItem_SeeOrVisual.Text = "显示/隐藏";
-            this.ToolStripMenuItem_SeeOrVisual.Click += new System.EventHandler(this.ToolStripMenuItem_SeeOrVisual_Click);
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackGroundWork_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackGroundWork_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackGroundWork_ProgressCompleted);
             // 
             // PortfolioBackTest
             // 
@@ -202,5 +211,6 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_RenkoSeries;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_SeeOrVisual;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

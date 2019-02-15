@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,20 +46,21 @@ namespace RenkoChart
         /// <param name="e"></param>
         private void ToolStripMenuItem_AddStrategy_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 AddStrategyTextPathForm f = new AddStrategyTextPathForm();
                 f.ShowDialog();
 
-                //添加一条Item到treeView中
-                this.listView_Strategy.Items.Add(f.IResult);
+                //上面现在给的是一个文件夹的路径@"X:\xxx\xxx"，搜索文件夹下路径的所有.txt文件导入-策略文件
+                string filePath = f.IResult;
+                string[] files = Directory.GetFiles(filePath, "*.txt");
 
-                string path = f.IResult;
-                HoldSingleStrategyDataAndSet(path);
+                this.backgroundWorker1.RunWorkerAsync(files);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("发生异常信息,请检查后重试:" + ex.Message);
+                MessageBox.Show("添加策略外部数据错误,请检查后重试:" + ex.Message);
             }
         }
 
@@ -133,7 +135,7 @@ namespace RenkoChart
         /// <param name="e"></param>
         private void ToolStripMenuItem_SeeOrVisual_Click(object sender, EventArgs e)
         {
-            if(m_isView)
+            if (m_isView)
             {
                 this.singleProductBackTestControl1.NoVisualLayOut();
                 this.singleProductBackTestControl1.NoVisualNoNeedRenkoSeries();
@@ -145,6 +147,45 @@ namespace RenkoChart
                 this.singleProductBackTestControl1.VisualNoNeedRenkoSeries();
                 m_isView = true;
             }
+        }
+
+        private void AddListViewItems(string fileName)
+        {
+            this.listView_Strategy.Items.Add(fileName);
+        }
+
+        private void BackGroundWork_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string[] files = (string[])e.Argument;
+
+            //FormProgressBar bar = new FormProgressBar();
+            //bar.Show();
+            //bar.TopMost = true;
+
+            foreach (string file in files)
+            {
+                try
+                {                
+                    HoldSingleStrategyDataAndSet(file);
+                    this.backgroundWorker1.ReportProgress(1,file);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("添加策略内部循环数据错误,请检查后重试:" + ex.Message);
+                }
+            }
+        }
+
+        private void BackGroundWork_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            string file = (string)e.UserState;
+            //添加一条Item到treeView中
+            this.listView_Strategy.BeginInvoke(new Action<string>(AddListViewItems), file);
+        }
+
+        private void BackGroundWork_ProgressCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
     }
 }

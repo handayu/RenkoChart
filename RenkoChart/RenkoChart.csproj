@@ -77,6 +77,12 @@
     <Compile Include="FolioControl.Designer.cs">
       <DependentUpon>FolioControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProgressBar.Designer.cs">
+      <DependentUpon>FormProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="HedgeAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FolioControl.resx">
       <DependentUpon>FolioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProgressBar.resx">
+      <DependentUpon>FormProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HedgeAnalysisControl.resx">
       <DependentUpon>HedgeAnalysisControl.cs</DependentUpon>

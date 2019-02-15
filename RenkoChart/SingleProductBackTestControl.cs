@@ -52,6 +52,12 @@ namespace RenkoChart
 
         public void SetData(List<StandardTradingInfo> infoResut,string pathName)
         {
+            if(this.InvokeRequired)
+            {
+                this.BeginInvoke(new Action<List<StandardTradingInfo>, string>(SetData),  infoResut,  pathName);
+                return;
+            }
+
             //先清空所有的之前的数据
             ClearAndDefult();
 
