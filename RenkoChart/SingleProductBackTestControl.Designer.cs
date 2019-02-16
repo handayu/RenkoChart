@@ -37,7 +37,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox_InitQuality = new System.Windows.Forms.TextBox();
-            this.radioButton_PointVisual = new System.Windows.Forms.RadioButton();
             this.radioButton_MoneyVisual = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_EvetyLoss = new System.Windows.Forms.TextBox();
@@ -84,9 +83,11 @@
             // 
             this.groupBox5.Controls.Add(this.chart1);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(0, 292);
+            this.groupBox5.Location = new System.Drawing.Point(0, 438);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1005, 308);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Size = new System.Drawing.Size(1508, 462);
             this.groupBox5.TabIndex = 12;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "资金曲线分析器";
@@ -99,7 +100,8 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 17);
+            this.chart1.Location = new System.Drawing.Point(4, 25);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -111,7 +113,7 @@
             series2.Name = "真实资金曲线";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(999, 288);
+            this.chart1.Size = new System.Drawing.Size(1500, 433);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Chart1_MouseClick);
@@ -120,11 +122,12 @@
             // 
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBox_InitQuality);
-            this.groupBox3.Controls.Add(this.radioButton_PointVisual);
             this.groupBox3.Controls.Add(this.radioButton_MoneyVisual);
-            this.groupBox3.Location = new System.Drawing.Point(11, 44);
+            this.groupBox3.Location = new System.Drawing.Point(16, 66);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(428, 81);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(642, 122);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "净值显示模式";
@@ -132,36 +135,28 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(236, 22);
+            this.label4.Location = new System.Drawing.Point(313, 56);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.Size = new System.Drawing.Size(89, 18);
             this.label4.TabIndex = 14;
             this.label4.Text = "起始资金:";
             // 
             // textBox_InitQuality
             // 
-            this.textBox_InitQuality.Location = new System.Drawing.Point(301, 15);
+            this.textBox_InitQuality.Location = new System.Drawing.Point(410, 50);
+            this.textBox_InitQuality.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_InitQuality.Name = "textBox_InitQuality";
-            this.textBox_InitQuality.Size = new System.Drawing.Size(104, 21);
+            this.textBox_InitQuality.Size = new System.Drawing.Size(154, 28);
             this.textBox_InitQuality.TabIndex = 13;
-            // 
-            // radioButton_PointVisual
-            // 
-            this.radioButton_PointVisual.AutoSize = true;
-            this.radioButton_PointVisual.Location = new System.Drawing.Point(15, 53);
-            this.radioButton_PointVisual.Name = "radioButton_PointVisual";
-            this.radioButton_PointVisual.Size = new System.Drawing.Size(143, 16);
-            this.radioButton_PointVisual.TabIndex = 1;
-            this.radioButton_PointVisual.TabStop = true;
-            this.radioButton_PointVisual.Text = "按点值(盈亏点值曲线)";
-            this.radioButton_PointVisual.UseVisualStyleBackColor = true;
             // 
             // radioButton_MoneyVisual
             // 
             this.radioButton_MoneyVisual.AutoSize = true;
-            this.radioButton_MoneyVisual.Location = new System.Drawing.Point(15, 20);
+            this.radioButton_MoneyVisual.Location = new System.Drawing.Point(19, 56);
+            this.radioButton_MoneyVisual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_MoneyVisual.Name = "radioButton_MoneyVisual";
-            this.radioButton_MoneyVisual.Size = new System.Drawing.Size(179, 16);
+            this.radioButton_MoneyVisual.Size = new System.Drawing.Size(267, 22);
             this.radioButton_MoneyVisual.TabIndex = 0;
             this.radioButton_MoneyVisual.TabStop = true;
             this.radioButton_MoneyVisual.Text = "给定初始资金的折算资金显示";
@@ -171,40 +166,45 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 20);
+            this.label3.Location = new System.Drawing.Point(14, 30);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 12);
+            this.label3.Size = new System.Drawing.Size(197, 18);
             this.label3.TabIndex = 12;
             this.label3.Text = "砖的高度(见MC设置点):";
             // 
             // textBox_EvetyLoss
             // 
-            this.textBox_EvetyLoss.Location = new System.Drawing.Point(447, 17);
+            this.textBox_EvetyLoss.Location = new System.Drawing.Point(685, 26);
+            this.textBox_EvetyLoss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_EvetyLoss.Name = "textBox_EvetyLoss";
-            this.textBox_EvetyLoss.Size = new System.Drawing.Size(132, 21);
+            this.textBox_EvetyLoss.Size = new System.Drawing.Size(196, 28);
             this.textBox_EvetyLoss.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(290, 20);
+            this.label2.Location = new System.Drawing.Point(435, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 12);
+            this.label2.Size = new System.Drawing.Size(242, 18);
             this.label2.TabIndex = 10;
-            this.label2.Text = "单笔交易成本(折算成点):";
+            this.label2.Text = "一进一出手续费+滑点(金额):";
             // 
             // textBox_RenkoHigh
             // 
-            this.textBox_RenkoHigh.Location = new System.Drawing.Point(146, 17);
+            this.textBox_RenkoHigh.Location = new System.Drawing.Point(219, 26);
+            this.textBox_RenkoHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_RenkoHigh.Name = "textBox_RenkoHigh";
-            this.textBox_RenkoHigh.Size = new System.Drawing.Size(134, 21);
+            this.textBox_RenkoHigh.Size = new System.Drawing.Size(199, 28);
             this.textBox_RenkoHigh.TabIndex = 8;
             // 
             // button_Cal
             // 
-            this.button_Cal.Location = new System.Drawing.Point(445, 94);
+            this.button_Cal.Location = new System.Drawing.Point(668, 141);
+            this.button_Cal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Cal.Name = "button_Cal";
-            this.button_Cal.Size = new System.Drawing.Size(134, 23);
+            this.button_Cal.Size = new System.Drawing.Size(201, 34);
             this.button_Cal.TabIndex = 9;
             this.button_Cal.Text = "开始生成";
             this.button_Cal.UseVisualStyleBackColor = true;
@@ -214,9 +214,11 @@
             // 
             this.groupBox4.Controls.Add(this.dataGridView_List);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox4.Location = new System.Drawing.Point(0, 131);
+            this.groupBox4.Location = new System.Drawing.Point(0, 196);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1005, 161);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(1508, 242);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Multicharts-Fx成交列表";
@@ -235,10 +237,11 @@
             this.Column8,
             this.Column9});
             this.dataGridView_List.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_List.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView_List.Location = new System.Drawing.Point(4, 25);
+            this.dataGridView_List.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView_List.Name = "dataGridView_List";
             this.dataGridView_List.RowTemplate.Height = 23;
-            this.dataGridView_List.Size = new System.Drawing.Size(999, 141);
+            this.dataGridView_List.Size = new System.Drawing.Size(1500, 213);
             this.dataGridView_List.TabIndex = 0;
             this.dataGridView_List.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting);
             // 
@@ -310,25 +313,29 @@
             this.groupBox2.Controls.Add(this.button_Cal);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1005, 131);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1508, 196);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "策略设置";
             // 
             // textBox_OpenShares
             // 
-            this.textBox_OpenShares.Location = new System.Drawing.Point(510, 50);
+            this.textBox_OpenShares.Location = new System.Drawing.Point(765, 75);
+            this.textBox_OpenShares.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_OpenShares.Name = "textBox_OpenShares";
-            this.textBox_OpenShares.Size = new System.Drawing.Size(69, 21);
+            this.textBox_OpenShares.Size = new System.Drawing.Size(102, 28);
             this.textBox_OpenShares.TabIndex = 16;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(445, 53);
+            this.label10.Location = new System.Drawing.Point(668, 80);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 12);
+            this.label10.Size = new System.Drawing.Size(89, 18);
             this.label10.TabIndex = 15;
             this.label10.Text = "开仓手数:";
             // 
@@ -346,124 +353,139 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBox_allTradeCout);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(608, 11);
+            this.groupBox1.Location = new System.Drawing.Point(912, 16);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 114);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(573, 171);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "回测参数和MC对照";
             // 
             // textBox_Symbol
             // 
-            this.textBox_Symbol.Location = new System.Drawing.Point(50, 45);
+            this.textBox_Symbol.Location = new System.Drawing.Point(75, 68);
+            this.textBox_Symbol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_Symbol.Name = "textBox_Symbol";
             this.textBox_Symbol.ReadOnly = true;
-            this.textBox_Symbol.Size = new System.Drawing.Size(101, 21);
+            this.textBox_Symbol.Size = new System.Drawing.Size(150, 28);
             this.textBox_Symbol.TabIndex = 24;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 51);
+            this.label9.Location = new System.Drawing.Point(14, 76);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 12);
+            this.label9.Size = new System.Drawing.Size(53, 18);
             this.label9.TabIndex = 23;
             this.label9.Text = "品种:";
             // 
             // textBox_needRenkoNum
             // 
-            this.textBox_needRenkoNum.Location = new System.Drawing.Point(268, 17);
+            this.textBox_needRenkoNum.Location = new System.Drawing.Point(402, 26);
+            this.textBox_needRenkoNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_needRenkoNum.Name = "textBox_needRenkoNum";
             this.textBox_needRenkoNum.ReadOnly = true;
-            this.textBox_needRenkoNum.Size = new System.Drawing.Size(63, 21);
+            this.textBox_needRenkoNum.Size = new System.Drawing.Size(92, 28);
             this.textBox_needRenkoNum.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(179, 23);
+            this.label8.Location = new System.Drawing.Point(268, 34);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 12);
+            this.label8.Size = new System.Drawing.Size(125, 18);
             this.label8.TabIndex = 21;
             this.label8.Text = "需要加砖笔数:";
             // 
             // textBox_LastBarNum
             // 
-            this.textBox_LastBarNum.Location = new System.Drawing.Point(155, 81);
+            this.textBox_LastBarNum.Location = new System.Drawing.Point(232, 122);
+            this.textBox_LastBarNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_LastBarNum.Name = "textBox_LastBarNum";
             this.textBox_LastBarNum.ReadOnly = true;
-            this.textBox_LastBarNum.Size = new System.Drawing.Size(50, 21);
+            this.textBox_LastBarNum.Size = new System.Drawing.Size(73, 28);
             this.textBox_LastBarNum.TabIndex = 20;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 86);
+            this.label7.Location = new System.Drawing.Point(14, 129);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 12);
+            this.label7.Size = new System.Drawing.Size(206, 18);
             this.label7.TabIndex = 19;
             this.label7.Text = "图表最后一笔的Bar编号:";
             // 
             // textBox_KuiSunCout
             // 
-            this.textBox_KuiSunCout.Location = new System.Drawing.Point(268, 42);
+            this.textBox_KuiSunCout.Location = new System.Drawing.Point(402, 63);
+            this.textBox_KuiSunCout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_KuiSunCout.Name = "textBox_KuiSunCout";
             this.textBox_KuiSunCout.ReadOnly = true;
-            this.textBox_KuiSunCout.Size = new System.Drawing.Size(63, 21);
+            this.textBox_KuiSunCout.Size = new System.Drawing.Size(92, 28);
             this.textBox_KuiSunCout.TabIndex = 18;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(179, 48);
+            this.label6.Location = new System.Drawing.Point(268, 72);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 12);
+            this.label6.Size = new System.Drawing.Size(89, 18);
             this.label6.TabIndex = 17;
             this.label6.Text = "亏损笔数:";
             // 
             // textBox_YingliCout
             // 
-            this.textBox_YingliCout.Location = new System.Drawing.Point(289, 77);
+            this.textBox_YingliCout.Location = new System.Drawing.Point(434, 116);
+            this.textBox_YingliCout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_YingliCout.Name = "textBox_YingliCout";
             this.textBox_YingliCout.ReadOnly = true;
-            this.textBox_YingliCout.Size = new System.Drawing.Size(65, 21);
+            this.textBox_YingliCout.Size = new System.Drawing.Size(96, 28);
             this.textBox_YingliCout.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(224, 84);
+            this.label5.Location = new System.Drawing.Point(336, 126);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 12);
+            this.label5.Size = new System.Drawing.Size(89, 18);
             this.label5.TabIndex = 15;
             this.label5.Text = "盈利笔数:";
             // 
             // textBox_allTradeCout
             // 
-            this.textBox_allTradeCout.Location = new System.Drawing.Point(86, 20);
+            this.textBox_allTradeCout.Location = new System.Drawing.Point(129, 30);
+            this.textBox_allTradeCout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_allTradeCout.Name = "textBox_allTradeCout";
             this.textBox_allTradeCout.ReadOnly = true;
-            this.textBox_allTradeCout.Size = new System.Drawing.Size(65, 21);
+            this.textBox_allTradeCout.Size = new System.Drawing.Size(96, 28);
             this.textBox_allTradeCout.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 26);
+            this.label1.Location = new System.Drawing.Point(14, 39);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 12);
+            this.label1.Size = new System.Drawing.Size(107, 18);
             this.label1.TabIndex = 13;
             this.label1.Text = "总交易笔数:";
             // 
             // SingleProductBackTestControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SingleProductBackTestControl";
-            this.Size = new System.Drawing.Size(1005, 600);
+            this.Size = new System.Drawing.Size(1508, 900);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -484,7 +506,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox_InitQuality;
-        private System.Windows.Forms.RadioButton radioButton_PointVisual;
         private System.Windows.Forms.RadioButton radioButton_MoneyVisual;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_EvetyLoss;

@@ -110,8 +110,7 @@ namespace RenkoChart
             this.textBox_InitQuality.Text = "100000";
             this.textBox_RenkoHigh.Text = "0";
 
-            this.radioButton_PointVisual.Checked = true;
-            this.radioButton_MoneyVisual.Checked = false;
+            this.radioButton_MoneyVisual.Checked = true;
 
             this.textBox_KuiSunCout.Text = "0";
             this.textBox_allTradeCout.Text = "0";
@@ -201,8 +200,7 @@ namespace RenkoChart
             this.textBox_RenkoHigh.Text = "0";
             this.textBox_OpenShares.Text = "1";
 
-            this.radioButton_PointVisual.Checked = true;
-            this.radioButton_MoneyVisual.Checked = false;
+            this.radioButton_MoneyVisual.Checked = true;
 
             this.chart1.Series[0].Points.Clear();
             this.chart1.Series[1].Points.Clear();
@@ -221,33 +219,6 @@ namespace RenkoChart
         /// <param name="e"></param>
         private void button_Cal_Click(object sender, EventArgs e)
         {
-            if(radioButton_PointVisual.Checked)
-            {
-                this.chart1.Series[0].Points.Clear();
-                this.chart1.Series[1].Points.Clear();
-
-                double noAddRenkoButAddCommisonQualitySeries = 0.00;
-
-                double commisionValue = 0.00;
-                double.TryParse(this.textBox_EvetyLoss.Text, out commisionValue);
-                    
-                double openshares = 0.00;
-                double.TryParse(this.textBox_OpenShares.Text, out openshares);
-                  
-                for (int i = 0; i < m_tradeList.Count; i++)
-                {
-                    noAddRenkoButAddCommisonQualitySeries = noAddRenkoButAddCommisonQualitySeries + m_tradeList[i].LastCloseProfit - commisionValue;
-                    this.chart1.Series["原始资金曲线"].Points.AddXY(i, noAddRenkoButAddCommisonQualitySeries* openshares);
-                }
-
-                double addRenkoAddCommisonQualitySeries = 0.00;
-                for (int i = 0; i < m_tradeList.Count; i++)
-                {
-                    addRenkoAddCommisonQualitySeries = addRenkoAddCommisonQualitySeries + m_tradeList[i].LastCloseProfit - commisionValue + m_tradeList[i].RenkoCommision*2;
-                    this.chart1.Series["真实资金曲线"].Points.AddXY(i, addRenkoAddCommisonQualitySeries* openshares);
-                }
-            }
-
             if (radioButton_MoneyVisual.Checked)
             {
                 this.chart1.Series[0].Points.Clear();
@@ -266,8 +237,8 @@ namespace RenkoChart
 
                 for (int i = 0; i < m_tradeList.Count; i++)
                 {
-                    noAddRenkoButAddCommisonQualitySeries = noAddRenkoButAddCommisonQualitySeries +( m_tradeList[i].LastCloseProfit - commisionValue) * m_tradeList[i].BigPointValue;
-                    this.chart1.Series[0].Points.AddXY(i, noAddRenkoButAddCommisonQualitySeries* openshares);
+                    noAddRenkoButAddCommisonQualitySeries = noAddRenkoButAddCommisonQualitySeries +(( m_tradeList[i].LastCloseProfit) * m_tradeList[i].BigPointValue - commisionValue)*openshares;
+                    this.chart1.Series[0].Points.AddXY(i, noAddRenkoButAddCommisonQualitySeries);
                 }
 
                 double addRenkoAddCommisonQualitySeries = 0.00;
@@ -275,8 +246,8 @@ namespace RenkoChart
 
                 for (int i = 0; i < m_tradeList.Count; i++)
                 {
-                    addRenkoAddCommisonQualitySeries = addRenkoAddCommisonQualitySeries + (m_tradeList[i].LastCloseProfit - commisionValue + m_tradeList[i].RenkoCommision*2)*m_tradeList[i].BigPointValue;
-                    this.chart1.Series[1].Points.AddXY(i, addRenkoAddCommisonQualitySeries* openshares);
+                    addRenkoAddCommisonQualitySeries = addRenkoAddCommisonQualitySeries + ((m_tradeList[i].LastCloseProfit + m_tradeList[i].RenkoCommision*2)*m_tradeList[i].BigPointValue - commisionValue)*openshares;
+                    this.chart1.Series[1].Points.AddXY(i, addRenkoAddCommisonQualitySeries);
                 }
             }
 
