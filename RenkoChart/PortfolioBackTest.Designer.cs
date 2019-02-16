@@ -33,9 +33,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView_Strategy = new System.Windows.Forms.ListView();
+            this.策略列表 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItem_AddStrategy = new System.Windows.Forms.ToolStripMenuItem();
-            this.singleProductBackTestControl1 = new RenkoChart.SingleProductBackTestControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.使用帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +43,8 @@
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_SeeOrVisual = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.策略列表 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.singleProductBackTestControl1 = new RenkoChart.SingleProductBackTestControl();
+            this.ToolStripMenuItem_RefrashStrategy = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -85,10 +86,16 @@
             this.listView_Strategy.View = System.Windows.Forms.View.Details;
             this.listView_Strategy.SelectedIndexChanged += new System.EventHandler(this.SelectIndexItemChanged);
             // 
+            // 策略列表
+            // 
+            resources.ApplyResources(this.策略列表, "策略列表");
+            // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_AddStrategy});
+            this.ToolStripMenuItem_AddStrategy,
+            this.ToolStripMenuItem_RefrashStrategy});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
@@ -98,13 +105,9 @@
             resources.ApplyResources(this.ToolStripMenuItem_AddStrategy, "ToolStripMenuItem_AddStrategy");
             this.ToolStripMenuItem_AddStrategy.Click += new System.EventHandler(this.ToolStripMenuItem_AddStrategy_Click);
             // 
-            // singleProductBackTestControl1
-            // 
-            resources.ApplyResources(this.singleProductBackTestControl1, "singleProductBackTestControl1");
-            this.singleProductBackTestControl1.Name = "singleProductBackTestControl1";
-            // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.使用帮助ToolStripMenuItem,
             this.ToolStripMenuItem_RenkoSeries,
@@ -152,9 +155,16 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackGroundWork_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackGroundWork_ProgressCompleted);
             // 
-            // 策略列表
+            // singleProductBackTestControl1
             // 
-            resources.ApplyResources(this.策略列表, "策略列表");
+            resources.ApplyResources(this.singleProductBackTestControl1, "singleProductBackTestControl1");
+            this.singleProductBackTestControl1.Name = "singleProductBackTestControl1";
+            // 
+            // ToolStripMenuItem_RefrashStrategy
+            // 
+            this.ToolStripMenuItem_RefrashStrategy.Name = "ToolStripMenuItem_RefrashStrategy";
+            resources.ApplyResources(this.ToolStripMenuItem_RefrashStrategy, "ToolStripMenuItem_RefrashStrategy");
+            this.ToolStripMenuItem_RefrashStrategy.Click += new System.EventHandler(this.ToolStripMenuItem_RefrashStrategyContains);
             // 
             // PortfolioBackTest
             // 
@@ -193,5 +203,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ColumnHeader 策略列表;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_RefrashStrategy;
     }
 }

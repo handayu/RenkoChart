@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace RenkoChart
 {
     public partial class PortfolioBackTest : Form
     {
+        private string m_Folder = string.Empty;
+
         public PortfolioBackTest()
         {
             InitializeComponent();
@@ -52,6 +55,9 @@ namespace RenkoChart
 
                 //上面现在给的是一个文件夹的路径@"X:\xxx\xxx"，搜索文件夹下路径的所有.txt文件导入-策略文件
                 string filePath = f.IResult;
+
+                m_Folder = filePath;
+
                 string[] files = Directory.GetFiles(filePath, "*.txt");
 
                 this.backgroundWorker1.RunWorkerAsync(files);
@@ -73,6 +79,8 @@ namespace RenkoChart
             try
             {
                 ListView view = (ListView)sender;
+
+                view.Focus();
 
                 //路径名直接当策略名
                 string pathName = view.FocusedItem.Text;
@@ -162,13 +170,13 @@ namespace RenkoChart
             foreach (string file in files)
             {
                 try
-                {                
+                {
                     HoldSingleStrategyDataAndSet(file);
-                    this.backgroundWorker1.ReportProgress(1,file);
+                    this.backgroundWorker1.ReportProgress(1, file);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("添加策略内部循环数据错误,请检查后重试:" + ex.Message);
+                    MessageBox.Show(file + ":添加策略内部循环数据错误,请检查:" + ex.Message);
                 }
             }
         }
@@ -184,5 +192,40 @@ namespace RenkoChart
         {
 
         }
+
+        private void ToolStripMenuItem_RefrashStrategyContains(object sender, EventArgs e)
+        {
+            //遍历文件夹所有fullname，如果items没有，加入
+            List<string> files = Directory.GetFiles(m_Folder, "*.txt").ToList();
+            foreach(string filePath in files)
+            {
+                try
+                {
+                    bool iFind = false;
+
+                    ListView.ListViewItemCollection c = this.listView_Strategy.Items;
+
+                    foreach(ListViewItem item in c)
+                    {
+                        if(item.Text == filePath)
+                        {
+                            iFind = true;
+                            break;
+                        }
+                    }
+
+                    if(!iFind)
+                    {
+                        HoldSingleStrategyDataAndSet(filePath);
+                        this.listView_Strategy.Items.Add(filePath);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("刷新策略发生异常,请检查:" + ex.Message);
+                }
+            }
+        }
     }
+
 }
