@@ -22,6 +22,68 @@ namespace RenkoChart
 
             this.singleProductBackTestControl1.Visible = true;
             this.singleProductBackTestControl1.Dock = DockStyle.Fill;
+
+            this.listView_Strategy.Validated += new System.EventHandler(this.lvSeries_Validated);
+            this.listView_Strategy.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvSeries_MouseDown);
+
+        }
+        /// <summary>
+        /// 失去焦点事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lvSeries_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.listView_Strategy.FocusedItem != null)
+                {
+                    this.listView_Strategy.FocusedItem.BackColor = SystemColors.Highlight;
+                    this.listView_Strategy.FocusedItem.ForeColor = Color.White;
+                }
+
+            }
+            catch (Exception eEx)
+            {
+                MessageBox.Show(eEx.Message);
+            }
+        }
+
+        /// <summary>
+        /// 重新选择行事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lvSeries_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+
+                ListViewItem _curItem = this.listView_Strategy.GetItemAt(e.X, e.Y);
+                foreach (ListViewItem item in this.listView_Strategy.Items)
+                {
+                    item.ForeColor = Color.Black;
+                    item.BackColor = Color.White;
+                }
+                if (_curItem != null && _curItem.Index > -1)
+                {
+                    _curItem.BackColor = SystemColors.Highlight;
+                    _curItem.ForeColor = Color.White;
+                }
+                else
+                {
+                    if (this.listView_Strategy.FocusedItem != null)
+                    {
+                        this.listView_Strategy.FocusedItem.BackColor = SystemColors.Highlight;
+                        this.listView_Strategy.FocusedItem.ForeColor = Color.White;
+                    }
+                }
+
+            }
+            catch (Exception eEx)
+            {
+                MessageBox.Show(eEx.Message);
+            }
         }
 
         public void HoldSingleStrategyDataAndSet(string path)
@@ -79,8 +141,6 @@ namespace RenkoChart
             try
             {
                 ListView view = (ListView)sender;
-
-                view.Focus();
 
                 //路径名直接当策略名
                 string pathName = view.FocusedItem.Text;

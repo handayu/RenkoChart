@@ -196,7 +196,6 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Help;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_AddStrategy;
-        private SingleProductBackTestControl singleProductBackTestControl2;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_RenkoSeries;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_SeeOrVisual;

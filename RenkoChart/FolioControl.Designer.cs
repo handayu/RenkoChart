@@ -334,8 +334,6 @@
         private System.Windows.Forms.TextBox textBox_initQuality;
         private System.Windows.Forms.RadioButton radioButton_moneyCal;
         private System.Windows.Forms.RadioButton radioButton_pointCal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridView dataGridView_List;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
