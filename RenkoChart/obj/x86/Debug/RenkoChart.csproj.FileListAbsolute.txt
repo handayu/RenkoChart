@@ -18,3 +18,5 @@ C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.Fo
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\bin\x86\Debug\sq\RenkoChart.resources.dll
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.PortfolioBackTest.sq.resources
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\sq\RenkoChart.resources.dll
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.AddValueSeriesStrategyTextPathForm.resources
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.ValueSeriesControl.resources

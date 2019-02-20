@@ -59,6 +59,56 @@ namespace RenkoChart
         }
     }
 
+
+    /// <summary>
+    /// 给定txt输出MCTXT后的标准类资金信息 - 给Value模式用的
+    /// </summary>
+    public class ValueStandardTradingInfo
+    {
+        public string Date
+        {
+            set;
+            get;
+        }
+        public string Time
+        {
+            set;
+            get;
+        }
+        public string Symbol
+        {
+            set;
+            get;
+        }
+        public double NoCommisionSlipiseAccountSeries
+        {
+            set;
+            get;
+        }
+
+        public double MinMovePriceScole
+        {
+            set;
+            get;
+        }
+        public double BigPointValue
+        {
+            set;
+            get;
+        }
+        public double TradeNum
+        {
+            set;
+            get;
+        }
+        public double Data2RenkoHigh
+        {
+            set;
+            get;
+        }
+    }
+
+
     public static class HandelTxtToStadardTradingInfo
     {
         public static List<StandardTradingInfo> HandelStandardTradingInfoList(string txtInfo)
@@ -72,6 +122,69 @@ namespace RenkoChart
 
             return standardTradingList;
         }
+
+        //新的已经去砖但没有去手续费和滑点的交易记录
+        public static List<ValueStandardTradingInfo> HandelValueStandardTradingInfoList(string txtInfo)
+        {
+            List<ValueStandardTradingInfo> standardTradingList = new List<ValueStandardTradingInfo>();
+            List<string> orgInfo = ReadTxt(txtInfo);
+            standardTradingList = TransToVlaueStandardInfoList(orgInfo);
+            return standardTradingList;
+        }
+
+        /// <summary>
+        /// 把读取的所有信息先转化成标准Value平台类格式
+        /// </summary>
+        /// <param name="tradingList"></param>
+        /// <returns></returns>
+        public static List<ValueStandardTradingInfo> TransToVlaueStandardInfoList(List<string> allTradingList)
+        {
+            List<string> tradeList = new List<string>();
+
+            List<string> allTradingCloneList = new List<string>();
+            foreach (string s in allTradingList)
+            {
+                allTradingCloneList.Add(s);
+            }
+
+            List<ValueStandardTradingInfo> standardTradingList = new List<ValueStandardTradingInfo>();
+
+            for (int i = 0; i < allTradingCloneList.Count; i++)
+            {
+                List<string> strArray = allTradingCloneList[i].Split('_').ToList();
+                List<string> newStrArray = new List<string>();
+                foreach (string s in strArray)
+                {
+                    if (s.CompareTo("") != 0)
+                    {
+                        s.Trim(' ');
+                        newStrArray.Add(s);
+                    }
+                }
+
+                ValueStandardTradingInfo standardTradeInfo = new ValueStandardTradingInfo();
+
+                standardTradeInfo.Date = newStrArray[0];
+                standardTradeInfo.Time = newStrArray[1];
+                standardTradeInfo.Symbol = newStrArray[2];
+                standardTradeInfo.NoCommisionSlipiseAccountSeries = TransStringtoDouble(newStrArray[3]);
+                standardTradeInfo.MinMovePriceScole = TransStringtoDouble(newStrArray[4]);
+                standardTradeInfo.BigPointValue = TransStringtoDouble(newStrArray[5]);
+                standardTradeInfo.TradeNum = TransStringtoDouble(newStrArray[6]);
+                standardTradeInfo.Data2RenkoHigh = TransStringtoDouble(newStrArray[7]);
+                standardTradingList.Add(standardTradeInfo);
+            }
+
+            return standardTradingList;
+        }
+
+        private static double TransStringtoDouble(string textInfo)
+        {
+            double d = 0.00;
+            double.TryParse(textInfo, out d);
+            return d;
+        }
+
 
         //读取所有交易信息
         public static List<string> ReadTxt(string path)

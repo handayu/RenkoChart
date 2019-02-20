@@ -71,6 +71,12 @@
     <Compile Include="AddStrategyTextPathForm.Designer.cs">
       <DependentUpon>AddStrategyTextPathForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddValueSeriesStrategyTextPathForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddValueSeriesStrategyTextPathForm.Designer.cs">
+      <DependentUpon>AddValueSeriesStrategyTextPathForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FolioControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +128,12 @@
     <Compile Include="TimeSeriesRenkoQualityFolioControl.Designer.cs">
       <DependentUpon>TimeSeriesRenkoQualityFolioControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValueSeriesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ValueSeriesControl.Designer.cs">
+      <DependentUpon>ValueSeriesControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -129,6 +141,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddStrategyTextPathForm.resx">
       <DependentUpon>AddStrategyTextPathForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddValueSeriesStrategyTextPathForm.resx">
+      <DependentUpon>AddValueSeriesStrategyTextPathForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FolioControl.resx">
       <DependentUpon>FolioControl.cs</DependentUpon>
@@ -156,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TimeSeriesRenkoQualityFolioControl.resx">
       <DependentUpon>TimeSeriesRenkoQualityFolioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValueSeriesControl.resx">
+      <DependentUpon>ValueSeriesControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
