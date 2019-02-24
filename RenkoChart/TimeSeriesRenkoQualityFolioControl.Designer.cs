@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,6 +49,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItem_AddStrategySeries = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_CalFolio = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_VisualSingleStrategy = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -208,16 +207,8 @@
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 131);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "时间序列资金曲线";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(703, 364);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
@@ -236,32 +227,41 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_AddStrategySeries,
-            this.ToolStripMenuItem_CalFolio});
+            this.ToolStripMenuItem_CalFolio,
+            this.ToolStripMenuItem_VisualSingleStrategy});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(227, 88);
             // 
             // ToolStripMenuItem_AddStrategySeries
             // 
             this.ToolStripMenuItem_AddStrategySeries.Name = "ToolStripMenuItem_AddStrategySeries";
-            this.ToolStripMenuItem_AddStrategySeries.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_AddStrategySeries.Size = new System.Drawing.Size(226, 28);
             this.ToolStripMenuItem_AddStrategySeries.Text = "添加策略";
             this.ToolStripMenuItem_AddStrategySeries.Click += new System.EventHandler(this.ToolStripMenuItem_AddStrategySeries_Click);
             // 
             // ToolStripMenuItem_CalFolio
             // 
             this.ToolStripMenuItem_CalFolio.Name = "ToolStripMenuItem_CalFolio";
-            this.ToolStripMenuItem_CalFolio.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_CalFolio.Size = new System.Drawing.Size(226, 28);
             this.ToolStripMenuItem_CalFolio.Text = "计算组合";
             this.ToolStripMenuItem_CalFolio.Click += new System.EventHandler(this.ToolStripMenuItem_CalFolio_Click);
             // 
+            // ToolStripMenuItem_VisualSingleStrategy
+            // 
+            this.ToolStripMenuItem_VisualSingleStrategy.Name = "ToolStripMenuItem_VisualSingleStrategy";
+            this.ToolStripMenuItem_VisualSingleStrategy.Size = new System.Drawing.Size(226, 28);
+            this.ToolStripMenuItem_VisualSingleStrategy.Text = "隐藏/显示[单策略]";
+            this.ToolStripMenuItem_VisualSingleStrategy.Click += new System.EventHandler(this.ToolStripMenuItem_VisualSingleStrategy_Click);
+            // 
             // TimeSeriesRenkoQualityFolioControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.Color.Red;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TimeSeriesRenkoQualityFolioControl";
@@ -298,5 +298,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_CalFolio;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_VisualSingleStrategy;
     }
 }

@@ -151,22 +151,64 @@ PS:
 无法看到真正的组合如果只是通过笔数叠加的话，所以在MC打印交易的时候，可以带上时间戳，根据时间戳做出真正的组合曲线 ；
 获取TradeInfo每天最后一条记录代表该策略当天的收益最终资金，然后把其他空缺的日期按照前一笔进行补齐
 形成最终的以时间为TimeSeries的资金曲线，横坐标为整日日期，而不再是按笔的资金曲线，然后整合成组合;
+[IntrabarOrderGeneration = false]
+inputs:
+   openshare(1),
+   CommisonAndSilpseMonew(120);
+
+variables:  AfStep( 0.02 ), AfLimit( 0.2 ) ;
+variables:  var0( 0 ), var1( 0 ), var2( 0 ), var3( 0 ) ;
+
+Value1 = ParabolicSAR( AfStep, AfLimit, var0, var1, var2, var3 ) ;
+
+if Close Cross Above var1 then begin
+	Buy ( "B" )openshare shares next bar at market;
+end;
+
+if Close Cross Under var1 then begin
+	Sell Short ( "S")openshare shares  next bar at market;
+end;
+
 var:
   MP(0),
-  LastTradeProfitPoint(0),   
-  Quality(0); 
-     
+  Quality(0),
+  NoRenkoQuality(0);
+       
 MP = marketposition;  
-   
+      
 if (MP[1] = 0 OR MP[1] = -1) and MP = 1  then begin
-   Quality = Quality + positionprofit(1);
-   print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1));    
+
+   if close - open &gt;0 then begin 
+       Quality = Quality + positionprofit(1) - openshare*CommisonAndSilpseMonew;
+       NoRenkoQuality = NoRenkoQuality + positionprofit(1);
+       //print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1),"_",NoRenkoQuality,"  NoAdd"); 
+       print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1)); 
+   end;
+      
+   if close - open &lt;0 then begin 
+       Quality = Quality + positionprofit(1) - openshare*CommisonAndSilpseMonew- openshare*2*absvalue(Open-Close)*bigpointvalue;
+       NoRenkoQuality = NoRenkoQuality + positionprofit(1);
+       //print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1)-2*absvalue(Open-Close)*bigpointvalue,"_",NoRenkoQuality,"  Add");   
+       print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1)-openshare*2*absvalue(Open-Close)*bigpointvalue);   
+   end;
+   
 end;
     
-if (MP[1] = 0 OR MP[1] = 1) and MP = -1 then begin   
-      Quality = Quality + positionprofit(1);
-   print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1));     
-end; 
-</value>
+if (MP[1] = 0 OR MP[1] = 1) and MP = -1 then begin
+
+   if close - open &lt;0 then begin 
+       Quality = Quality + positionprofit(1) - openshare*CommisonAndSilpseMonew;
+       NoRenkoQuality = NoRenkoQuality + positionprofit(1);
+       //print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1),"_",NoRenkoQuality,"  NoAdd");
+       print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1));
+   end; 
+   
+   if close - open &gt;0 then begin  
+       Quality= Quality + positionprofit(1) - openshare*CommisonAndSilpseMonew- openshare*2*absvalue(Open-Close)*bigpointvalue;
+       NoRenkoQuality = NoRenkoQuality + positionprofit(1);
+       //print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1)-2*absvalue(Open-Close)*bigpointvalue,"_",NoRenkoQuality,"  Add");   
+       print(symbolname,"_",Date,"_",Time,"_",Quality,"_",positionprofit(1)-openshare*2*absvalue(Open-Close)*bigpointvalue);
+   end;
+end;      </value>
   </data>
 </root>
