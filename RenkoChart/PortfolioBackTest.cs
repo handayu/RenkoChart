@@ -25,7 +25,7 @@ namespace RenkoChart
             this.singleProductBackTestControl1.Visible = true;
             this.singleProductBackTestControl1.Dock = DockStyle.Fill;
 
-            this.valueSeriesControl1.Visible = false;
+            //this.valueSeriesControl1.Visible = false;
 
         }
         /// <summary>
@@ -156,7 +156,7 @@ namespace RenkoChart
         public void HoldSingleVlaueStrategyDataAndSet(string path)
         {
             List<ValueStandardTradingInfo> infoResut = HandelTxtToStadardTradingInfo.HandelValueStandardTradingInfoList(path);
-            this.valueSeriesControl1.SetData(infoResut, path);
+            //this.valueSeriesControl1.SetData(infoResut, path);
         }
 
         private void HoldSingleStrategyDataAndSet(string pathName, TradeStrategyInfo info)
@@ -234,35 +234,42 @@ namespace RenkoChart
 
         private void ToolStripMenuItem_RefrashStrategyContains(object sender, EventArgs e)
         {
-            //遍历文件夹所有fullname，如果items没有，加入
-            List<string> files = Directory.GetFiles(m_Folder, "*.txt").ToList();
-            foreach (string filePath in files)
+            try
             {
-                try
+                //遍历文件夹所有fullname，如果items没有，加入
+                List<string> files = Directory.GetFiles(m_Folder, "*.txt").ToList();
+                foreach (string filePath in files)
                 {
-                    bool iFind = false;
-
-                    ListView.ListViewItemCollection c = this.listView_Strategy.Items;
-
-                    foreach (ListViewItem item in c)
+                    try
                     {
-                        if (item.Text == filePath)
+                        bool iFind = false;
+
+                        ListView.ListViewItemCollection c = this.listView_Strategy.Items;
+
+                        foreach (ListViewItem item in c)
                         {
-                            iFind = true;
-                            break;
+                            if (item.Text == filePath)
+                            {
+                                iFind = true;
+                                break;
+                            }
+                        }
+
+                        if (!iFind)
+                        {
+                            HoldSingleStrategyDataAndSet(filePath);
+                            this.listView_Strategy.Items.Add(filePath);
                         }
                     }
-
-                    if (!iFind)
+                    catch (Exception ex)
                     {
-                        HoldSingleStrategyDataAndSet(filePath);
-                        this.listView_Strategy.Items.Add(filePath);
+                        MessageBox.Show("刷新策略发生异常,请检查:" + ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("刷新策略发生异常,请检查:" + ex.Message);
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(string.Format("刷新发生异常:{0},请检查重试...",ex.Message));
             }
         }
 
@@ -274,8 +281,8 @@ namespace RenkoChart
 
                 //隐藏SingleControl,打开点值设置界面
                 this.singleProductBackTestControl1.Visible = false;
-                this.valueSeriesControl1.Visible = true;
-                this.valueSeriesControl1.Dock = DockStyle.Fill;
+                //this.valueSeriesControl1.Visible = true;
+                //this.valueSeriesControl1.Dock = DockStyle.Fill;
 
                 AddValueSeriesStrategyTextPathForm f = new AddValueSeriesStrategyTextPathForm();
                 f.ShowDialog();

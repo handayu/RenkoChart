@@ -37,6 +37,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItem_AddStrategy = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_RefrashStrategy = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_ValueSeries = new System.Windows.Forms.ToolStripMenuItem();
+            this.singleProductBackTestControl1 = new RenkoChart.SingleProductBackTestControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.使用帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,9 +46,6 @@
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_SeeOrVisual = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.ToolStripMenuItem_ValueSeries = new System.Windows.Forms.ToolStripMenuItem();
-            this.singleProductBackTestControl1 = new RenkoChart.SingleProductBackTestControl();
-            this.valueSeriesControl1 = new RenkoChart.ValueSeriesControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,7 +66,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.valueSeriesControl1);
             this.splitContainer1.Panel2.Controls.Add(this.singleProductBackTestControl1);
             // 
             // groupBox1
@@ -114,6 +112,17 @@
             this.ToolStripMenuItem_RefrashStrategy.Name = "ToolStripMenuItem_RefrashStrategy";
             resources.ApplyResources(this.ToolStripMenuItem_RefrashStrategy, "ToolStripMenuItem_RefrashStrategy");
             this.ToolStripMenuItem_RefrashStrategy.Click += new System.EventHandler(this.ToolStripMenuItem_RefrashStrategyContains);
+            // 
+            // ToolStripMenuItem_ValueSeries
+            // 
+            this.ToolStripMenuItem_ValueSeries.Name = "ToolStripMenuItem_ValueSeries";
+            resources.ApplyResources(this.ToolStripMenuItem_ValueSeries, "ToolStripMenuItem_ValueSeries");
+            this.ToolStripMenuItem_ValueSeries.Click += new System.EventHandler(this.ToolStripMenuItem_ValueSeriesClick);
+            // 
+            // singleProductBackTestControl1
+            // 
+            resources.ApplyResources(this.singleProductBackTestControl1, "singleProductBackTestControl1");
+            this.singleProductBackTestControl1.Name = "singleProductBackTestControl1";
             // 
             // menuStrip1
             // 
@@ -165,22 +174,6 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackGroundWork_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackGroundWork_ProgressCompleted);
             // 
-            // ToolStripMenuItem_ValueSeries
-            // 
-            this.ToolStripMenuItem_ValueSeries.Name = "ToolStripMenuItem_ValueSeries";
-            resources.ApplyResources(this.ToolStripMenuItem_ValueSeries, "ToolStripMenuItem_ValueSeries");
-            this.ToolStripMenuItem_ValueSeries.Click += new System.EventHandler(this.ToolStripMenuItem_ValueSeriesClick);
-            // 
-            // singleProductBackTestControl1
-            // 
-            resources.ApplyResources(this.singleProductBackTestControl1, "singleProductBackTestControl1");
-            this.singleProductBackTestControl1.Name = "singleProductBackTestControl1";
-            // 
-            // valueSeriesControl1
-            // 
-            resources.ApplyResources(this.valueSeriesControl1, "valueSeriesControl1");
-            this.valueSeriesControl1.Name = "valueSeriesControl1";
-            // 
             // PortfolioBackTest
             // 
             resources.ApplyResources(this, "$this");
@@ -219,6 +212,6 @@
         private System.Windows.Forms.ColumnHeader 策略列表;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_RefrashStrategy;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_ValueSeries;
-        private ValueSeriesControl valueSeriesControl1;
+        //private ValueSeriesControl valueSeriesControl1;
     }
 }

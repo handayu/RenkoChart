@@ -380,7 +380,7 @@ namespace RenkoChart
 
                 foreach (TradeInfo info in seriesTradeList)
                 {
-                    this.chart1.Series[strategyPath].Points.AddXY(info.DateInfo, info.Quality*2);
+                    this.chart1.Series[strategyPath].Points.AddXY(info.DateInfo, info.Quality);
                 }
             }
 
@@ -413,7 +413,6 @@ namespace RenkoChart
                 this.chart1.Series["投资组合"].Points.AddXY(xTime, Quality);
                 Debug.WriteLine(xTime.ToString() + "----" + Quality.ToString());
             }
-
         }
     }
 }
