@@ -35,7 +35,6 @@ namespace RenkoChart
 
             this.dataGridView_HandleAfter.AutoGenerateColumns = false;
             this.dataGridView_HandleAfter.DataSource = m_HandleTimeSeriesTradeList;
-
         }
 
         public class TradeInfo
@@ -193,55 +192,71 @@ namespace RenkoChart
                 AddStrategyTextPathForm f = new AddStrategyTextPathForm();
                 f.ShowDialog();
 
-                //添加一条Item到treeView中
-                ListViewItem lvi = new ListViewItem();
-                lvi.Text = f.IResult;
-                this.listView1.Items.Add(lvi);
+                //上面现在给的是一个文件夹的路径@"X:\xxx\xxx"，搜索文件夹下路径的所有.txt文件导入-策略文件
+                string filePath = f.IResult;
+                List<string> files = Directory.GetFiles(filePath, "*.txt").ToList();
 
-                this.chart1.Series.Clear();
-
-                //搜出最原始的MC数据
-                string path = f.IResult;
-                List<string> mcStrList = RedTxt(path);
-
-                //清空两个表-Series-邦定Series数据源
-                m_MCEditTradeList.Clear();
-                m_HandleTimeSeriesTradeList.Clear();
-                //this.chart1.Series["时间序列资金曲线"].Points.Clear();
-                List<DateTime> xBind = new List<DateTime>();
-                List<double> yBind = new List<double>();
-
-                //添加到两个表
-                List<TradeInfo> mcStandardTradeList = HandleMCTradeInfoList(mcStrList);
-                foreach (TradeInfo info in mcStandardTradeList)
+                if (files.Count <= 0)
                 {
-                    m_MCEditTradeList.Add(info);
+                    MessageBox.Show("请确认输入的文件夹下有数据文本...");
+                    return;
                 }
 
-                List<TradeInfo> timeSeriesTradeList = HandleTimeSeriesTradeInfoList(mcStandardTradeList);
-
-                foreach (TradeInfo info in timeSeriesTradeList)
+                foreach (string file in files)
                 {
-                    m_HandleTimeSeriesTradeList.Add(info);
+                    //添加一条Item到treeView中
+                    ListViewItem lvi = new ListViewItem();
+                    lvi.Text = file;
+                    this.listView1.Items.Add(lvi);
 
-                    xBind.Add(info.DateInfo);
-                    yBind.Add(info.Quality);
+                    this.chart1.Series.Clear();
+                    this.chart1.Legends.Clear();
+                    //因为没有必要参数和曲线每个再去填了，只是直接选第一个txt展示即可。后面的切换再填
+                    //搜出最原始的MC数据
+                    List<string> mcStrList = RedTxt(file);
+
+                    //清空两个表-Series-邦定Series数据源
+                    m_MCEditTradeList.Clear();
+                    m_HandleTimeSeriesTradeList.Clear();
+                    //this.chart1.Series["时间序列资金曲线"].Points.Clear();
+                    List<DateTime> xBind = new List<DateTime>();
+                    List<double> yBind = new List<double>();
+
+                    //添加到两个表
+                    List<TradeInfo> mcStandardTradeList = HandleMCTradeInfoList(mcStrList);
+                    foreach (TradeInfo info in mcStandardTradeList)
+                    {
+                        m_MCEditTradeList.Add(info);
+                    }
+
+                    List<TradeInfo> timeSeriesTradeList = HandleTimeSeriesTradeInfoList(mcStandardTradeList);
+
+                    foreach (TradeInfo info in timeSeriesTradeList)
+                    {
+                        m_HandleTimeSeriesTradeList.Add(info);
+
+                        xBind.Add(info.DateInfo);
+                        yBind.Add(info.Quality);
+                    }
+
+                    System.Windows.Forms.DataVisualization.Charting.Series seriesStrategy = new System.Windows.Forms.DataVisualization.Charting.Series();
+                    seriesStrategy.ChartArea = "ChartArea1";
+                    seriesStrategy.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                    seriesStrategy.Legend = Path.GetFileNameWithoutExtension(file);
+                    seriesStrategy.LegendText = Path.GetFileNameWithoutExtension(file);
+                    seriesStrategy.ResetIsVisibleInLegend();
+                    seriesStrategy.Name = file;
+                    seriesStrategy.IsVisibleInLegend = true;
+                    this.chart1.Legends.Add(seriesStrategy.LegendText);
+
+                    this.chart1.Series.Add(seriesStrategy);
+
+                    this.chart1.Series[0].Points.DataBindXY(xBind, yBind);
+
+                    //保存Strategy-PathName -- List<>的Dic用于切换和组合叠加
+                    m_StategyNameTradeDic.Add(file, timeSeriesTradeList);
+                    m_StategyNameOrgionTradeDic.Add(file, mcStandardTradeList);
                 }
-
-                System.Windows.Forms.DataVisualization.Charting.Series seriesStrategy = new System.Windows.Forms.DataVisualization.Charting.Series();
-                seriesStrategy.ChartArea = "ChartArea1";
-                seriesStrategy.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                seriesStrategy.Legend = "Legend1";
-                seriesStrategy.Name = lvi.Text;
-                seriesStrategy.IsVisibleInLegend = false;
-                this.chart1.Series.Add(seriesStrategy);
-
-                this.chart1.Series[0].Points.DataBindXY(xBind, yBind);
-
-                //保存Strategy-PathName -- List<>的Dic用于切换和组合叠加
-                m_StategyNameTradeDic.Add(path, timeSeriesTradeList);
-                m_StategyNameOrgionTradeDic.Add(path, mcStandardTradeList);
-
             }
             catch (Exception ex)
             {
@@ -254,6 +269,7 @@ namespace RenkoChart
             string pathName = this.listView1.FocusedItem.Text;
 
             this.chart1.Series.Clear();
+            this.chart1.Legends.Clear();
 
             foreach (KeyValuePair<string, List<TradeInfo>> kv in m_StategyNameTradeDic)
             {
@@ -278,10 +294,12 @@ namespace RenkoChart
                 System.Windows.Forms.DataVisualization.Charting.Series seriesStrategy = new System.Windows.Forms.DataVisualization.Charting.Series();
                 seriesStrategy.ChartArea = "ChartArea1";
                 seriesStrategy.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                seriesStrategy.Legend = "Legend1";
+                seriesStrategy.Legend = Path.GetFileNameWithoutExtension(pathName);
+                seriesStrategy.LegendText = Path.GetFileNameWithoutExtension(pathName);
                 seriesStrategy.Name = pathName;
-                seriesStrategy.IsVisibleInLegend = false;
+                seriesStrategy.IsVisibleInLegend = true;
                 this.chart1.Series.Add(seriesStrategy);
+                this.chart1.Legends.Add(seriesStrategy.LegendText);
 
                 this.chart1.Series[0].Points.DataBindXY(xBind, yBind);
             }
@@ -309,7 +327,7 @@ namespace RenkoChart
 
             //清空曲线
             this.chart1.Series.Clear();
-
+            this.chart1.Legends.Clear();
             //这里遍历每一个策略的时间序列，把它们的时间序列补齐成一样，才能进行时间组合
             DateTime seriesBeginDateTime = DateTime.Now;
             DateTime seriesEndDateTime = DateTime.Now;
@@ -391,18 +409,18 @@ namespace RenkoChart
             {
                 string strategyPath = kv.Key;
                 List<TradeInfo> seriesTradeList = kv.Value;
-
                 System.Windows.Forms.DataVisualization.Charting.Series seriesStrategy = new System.Windows.Forms.DataVisualization.Charting.Series();
                 seriesStrategy.ChartArea = "ChartArea1";
                 seriesStrategy.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                seriesStrategy.Legend = "Legend1";
-                seriesStrategy.Name = strategyPath;
-                seriesStrategy.IsVisibleInLegend = false;
+                Legend lc = new Legend(seriesStrategy.LegendText);
+                seriesStrategy.Name = Path.GetFileNameWithoutExtension(strategyPath);
+                seriesStrategy.LegendText = Path.GetFileNameWithoutExtension(strategyPath);
                 this.chart1.Series.Add(seriesStrategy);
+                this.chart1.Legends.Add(lc);
 
                 foreach (TradeInfo info in seriesTradeList)
                 {
-                    this.chart1.Series[strategyPath].Points.AddXY(info.DateInfo, info.Quality);
+                    this.chart1.Series[Path.GetFileNameWithoutExtension(strategyPath)].Points.AddXY(info.DateInfo, info.Quality);
                 }
             }
 
@@ -410,10 +428,11 @@ namespace RenkoChart
             System.Windows.Forms.DataVisualization.Charting.Series seriesStrategyFolio = new System.Windows.Forms.DataVisualization.Charting.Series();
             seriesStrategyFolio.ChartArea = "ChartArea1";
             seriesStrategyFolio.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            seriesStrategyFolio.Legend = "Legend1";
+            Legend l = new Legend(seriesStrategyFolio.LegendText);
             seriesStrategyFolio.Name = "投资组合";
-            seriesStrategyFolio.IsVisibleInLegend = true;
             this.chart1.Series.Add(seriesStrategyFolio);
+            this.chart1.Series["投资组合"].Color = Color.Red;
+            this.chart1.Legends.Add(l);
 
             int tradeCount = 0;
             foreach (KeyValuePair<string, List<TradeInfo>> kv in folioResultDic)
@@ -436,6 +455,15 @@ namespace RenkoChart
                 this.chart1.Series["投资组合"].Points.AddXY(xTime, Quality);
                 Debug.WriteLine(xTime.ToString() + "----" + Quality.ToString());
             }
+
+            //for(int ic = 0;ic<this.chart1.Legends.Count;ic++)
+            //{
+            //    Legend legend = this.chart1.Legends[ic];
+
+            //    //legend.Docking = Docking.Right; // 设置摆放位置
+            //    //legend.Alignment = System.Drawing.StringAlignment.Far; // 对齐
+            //    legend.IsDockedInsideChartArea = true;
+            //}
         }
 
         private bool m_visualStrategy = false;
@@ -449,7 +477,7 @@ namespace RenkoChart
                 {
                     if(s.Name != "投资组合")
                     {
-                        this.chart1.Series[s.Name].IsVisibleInLegend = false;
+                        //this.chart1.Series[s.Name].IsVisibleInLegend = true;
                         this.chart1.Series[s.Name].Enabled = false;
                     }
                 }
@@ -462,7 +490,7 @@ namespace RenkoChart
                 {
                     if (s.Name != "投资组合")
                     {
-                        this.chart1.Series[s.Name].IsVisibleInLegend = true;
+                        //this.chart1.Series[s.Name].IsVisibleInLegend = true;
                         this.chart1.Series[s.Name].Enabled = true;
                     }
                 }
