@@ -89,6 +89,12 @@
     <Compile Include="FormProgressBar.Designer.cs">
       <DependentUpon>FormProgressBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSpilise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpilise.Designer.cs">
+      <DependentUpon>FormSpilise.cs</DependentUpon>
+    </Compile>
     <Compile Include="HedgeAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,7 @@
     <Compile Include="TimeSeriesRenkoQualityFolioControl.Designer.cs">
       <DependentUpon>TimeSeriesRenkoQualityFolioControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="USeBaseViewModel.cs" />
     <Compile Include="ValueSeriesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProgressBar.resx">
       <DependentUpon>FormProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpilise.resx">
+      <DependentUpon>FormSpilise.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HedgeAnalysisControl.resx">
       <DependentUpon>HedgeAnalysisControl.cs</DependentUpon>

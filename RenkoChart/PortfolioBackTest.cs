@@ -313,7 +313,11 @@ namespace RenkoChart
             }
         }
 
-
+        private void ToolStripMenuItem_SpileseClick(object sender, EventArgs e)
+        {
+            FormSpilise f = new FormSpilise();
+            f.Show();
+        }
     }
 
 }

@@ -46,6 +46,7 @@
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_SeeOrVisual = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ToolStripMenuItem_Spilese = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -130,7 +131,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.使用帮助ToolStripMenuItem,
             this.ToolStripMenuItem_RenkoSeries,
-            this.设置ToolStripMenuItem});
+            this.设置ToolStripMenuItem,
+            this.ToolStripMenuItem_Spilese});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -174,6 +176,12 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackGroundWork_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackGroundWork_ProgressCompleted);
             // 
+            // ToolStripMenuItem_Spilese
+            // 
+            this.ToolStripMenuItem_Spilese.Name = "ToolStripMenuItem_Spilese";
+            resources.ApplyResources(this.ToolStripMenuItem_Spilese, "ToolStripMenuItem_Spilese");
+            this.ToolStripMenuItem_Spilese.Click += new System.EventHandler(this.ToolStripMenuItem_SpileseClick);
+            // 
             // PortfolioBackTest
             // 
             resources.ApplyResources(this, "$this");
@@ -212,6 +220,7 @@
         private System.Windows.Forms.ColumnHeader 策略列表;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_RefrashStrategy;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_ValueSeries;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Spilese;
         //private ValueSeriesControl valueSeriesControl1;
     }
 }

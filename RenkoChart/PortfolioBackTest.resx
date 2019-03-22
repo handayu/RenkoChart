@@ -123,10 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 34</value>
-  </data>
-  <data name="splitContainer1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>0, 25</value>
   </data>
   <data name="策略列表.Text" xml:space="preserve">
     <value>策略列表</value>
@@ -139,19 +136,19 @@
     <value>137, 17</value>
   </metadata>
   <data name="ToolStripMenuItem_AddStrategy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 28</value>
+    <value>136, 22</value>
   </data>
   <data name="ToolStripMenuItem_AddStrategy.Text" xml:space="preserve">
     <value>添加策略</value>
   </data>
   <data name="ToolStripMenuItem_RefrashStrategy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 28</value>
+    <value>136, 22</value>
   </data>
   <data name="ToolStripMenuItem_RefrashStrategy.Text" xml:space="preserve">
     <value>刷新策略库</value>
   </data>
   <data name="ToolStripMenuItem_ValueSeries.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 28</value>
+    <value>136, 22</value>
   </data>
   <data name="ToolStripMenuItem_ValueSeries.Text" xml:space="preserve">
     <value>点值曲线</value>
@@ -160,7 +157,7 @@
     <value>False</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 121</value>
+    <value>137, 70</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -172,13 +169,10 @@
     <value>Fill</value>
   </data>
   <data name="listView_Strategy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 28</value>
-  </data>
-  <data name="listView_Strategy.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 19</value>
   </data>
   <data name="listView_Strategy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 906</value>
+    <value>168, 601</value>
   </data>
   <data name="listView_Strategy.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -199,19 +193,13 @@
     <value>Fill</value>
   </data>
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei, 9pt</value>
+    <value>微软雅黑, 9pt</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 938</value>
+    <value>174, 623</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -244,13 +232,13 @@
     <value>0</value>
   </data>
   <data name="singleProductBackTestControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 435</value>
+    <value>0, 290</value>
   </data>
   <data name="singleProductBackTestControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="singleProductBackTestControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1065, 502</value>
+    <value>710, 335</value>
   </data>
   <data name="singleProductBackTestControl1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -280,13 +268,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1755, 938</value>
+    <value>1170, 623</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>261</value>
-  </data>
-  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>174</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -307,43 +292,46 @@
     <value>17, 17</value>
   </metadata>
   <data name="ToolStripMenuItem_Help.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 30</value>
+    <value>112, 22</value>
   </data>
   <data name="ToolStripMenuItem_Help.Text" xml:space="preserve">
     <value>说明档</value>
   </data>
   <data name="使用帮助ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 28</value>
+    <value>68, 21</value>
   </data>
   <data name="使用帮助ToolStripMenuItem.Text" xml:space="preserve">
     <value>使用帮助</value>
   </data>
   <data name="ToolStripMenuItem_RenkoSeries.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 28</value>
+    <value>116, 21</value>
   </data>
   <data name="ToolStripMenuItem_RenkoSeries.Text" xml:space="preserve">
     <value>时间序列投资组合</value>
   </data>
   <data name="ToolStripMenuItem_SeeOrVisual.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 30</value>
+    <value>180, 22</value>
   </data>
   <data name="ToolStripMenuItem_SeeOrVisual.Text" xml:space="preserve">
     <value>显示/隐藏</value>
   </data>
   <data name="设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 28</value>
+    <value>44, 21</value>
   </data>
   <data name="设置ToolStripMenuItem.Text" xml:space="preserve">
     <value>设置</value>
   </data>
+  <data name="ToolStripMenuItem_Spilese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 21</value>
+  </data>
+  <data name="ToolStripMenuItem_Spilese.Text" xml:space="preserve">
+    <value>市场冲击成本分析器</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>9, 3, 0, 3</value>
-  </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1755, 34</value>
+    <value>1170, 25</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -370,16 +358,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 18</value>
+    <value>6, 12</value>
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1755, 972</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>1170, 648</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>投资组合(调整)回测系统</value>
@@ -443,6 +428,12 @@
   </data>
   <data name="&gt;&gt;backgroundWorker1.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem_Spilese.Name" xml:space="preserve">
+    <value>ToolStripMenuItem_Spilese</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem_Spilese.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>PortfolioBackTest</value>

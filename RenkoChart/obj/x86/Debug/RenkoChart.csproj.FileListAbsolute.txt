@@ -20,3 +20,4 @@ C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.cs
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\sq\RenkoChart.resources.dll
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.exe
 C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.pdb
+C:\Users\Administrator\Desktop\RenkoChart\RenkoChart\obj\x86\Debug\RenkoChart.FormSpilise.resources
