@@ -68,6 +68,12 @@ namespace RenkoChart
                 set;
                 get;
             }
+
+            public override string ToString()
+            {
+                string str = Symbol + "," + DateInfo.ToString() + "," + TimeInfo + "," + Quality.ToString() + "," + Positionprofit.ToString();
+                return str;
+            }
         }
 
         /// <summary>
@@ -441,7 +447,7 @@ namespace RenkoChart
                 break;
             }
 
-            for(int iC = 0;iC<tradeCount;iC++)
+            for (int iC = 0; iC < tradeCount; iC++)
             {
                 DateTime xTime = DateTime.Now;
                 double Quality = 0.00;
@@ -469,13 +475,13 @@ namespace RenkoChart
         private bool m_visualStrategy = false;
         private void ToolStripMenuItem_VisualSingleStrategy_Click(object sender, EventArgs e)
         {
-            SeriesCollection coll =  this.chart1.Series;
+            SeriesCollection coll = this.chart1.Series;
 
-            if(!m_visualStrategy)
+            if (!m_visualStrategy)
             {
-                foreach(Series s in coll)
+                foreach (Series s in coll)
                 {
-                    if(s.Name != "投资组合")
+                    if (s.Name != "投资组合")
                     {
                         //this.chart1.Series[s.Name].IsVisibleInLegend = true;
                         this.chart1.Series[s.Name].Enabled = false;
@@ -495,6 +501,51 @@ namespace RenkoChart
                     }
                 }
                 m_visualStrategy = false;
+            }
+        }
+
+        private void ToolStripMenuItem_ExportClick(object sender, EventArgs e)
+        {
+            if (m_MCEditTradeList == null || m_MCEditTradeList.Count <= 0)
+            {
+                MessageBox.Show("m_MCEditTradeList is null.");
+                return;
+            }
+
+            if (m_HandleTimeSeriesTradeList == null || m_HandleTimeSeriesTradeList.Count <= 0)
+            {
+                MessageBox.Show("m_HandleTimeSeriesTradeList is null.");
+                return;
+            }
+
+            try
+            {
+
+                string m_startPath = System.Windows.Forms.Application.StartupPath + "\\" + m_MCEditTradeList[0].Symbol + ".txt";
+                string m_startSeriesPath = System.Windows.Forms.Application.StartupPath + "\\" + m_HandleTimeSeriesTradeList[0].Symbol + "_TimeSeries.txt";
+
+                File.Delete(m_startPath);
+                File.Delete(m_startSeriesPath);
+
+                foreach (TradeInfo t in m_MCEditTradeList)
+                {
+                    string info = t.ToString();
+                    File.AppendAllText(m_startPath, "\r\n" + info);
+                }
+
+
+                foreach (TradeInfo t in m_HandleTimeSeriesTradeList)
+                {
+                    string info = t.ToString();
+                    File.AppendAllText(m_startSeriesPath, "\r\n" + info);
+                }
+
+                MessageBox.Show("导出成功:" + "该原始分笔盈亏数据和时间序列数据已经导出到启动目录,请查看...");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("导出异常:" + ex.Message);
             }
         }
     }

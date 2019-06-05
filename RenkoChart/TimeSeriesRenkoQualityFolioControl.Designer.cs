@@ -51,6 +51,7 @@
             this.ToolStripMenuItem_AddStrategySeries = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_CalFolio = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_VisualSingleStrategy = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_Export = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -234,30 +235,38 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_AddStrategySeries,
             this.ToolStripMenuItem_CalFolio,
-            this.ToolStripMenuItem_VisualSingleStrategy});
+            this.ToolStripMenuItem_VisualSingleStrategy,
+            this.ToolStripMenuItem_Export});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
             // 
             // ToolStripMenuItem_AddStrategySeries
             // 
             this.ToolStripMenuItem_AddStrategySeries.Name = "ToolStripMenuItem_AddStrategySeries";
-            this.ToolStripMenuItem_AddStrategySeries.Size = new System.Drawing.Size(173, 22);
+            this.ToolStripMenuItem_AddStrategySeries.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_AddStrategySeries.Text = "添加策略";
             this.ToolStripMenuItem_AddStrategySeries.Click += new System.EventHandler(this.ToolStripMenuItem_AddStrategySeries_Click);
             // 
             // ToolStripMenuItem_CalFolio
             // 
             this.ToolStripMenuItem_CalFolio.Name = "ToolStripMenuItem_CalFolio";
-            this.ToolStripMenuItem_CalFolio.Size = new System.Drawing.Size(173, 22);
+            this.ToolStripMenuItem_CalFolio.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_CalFolio.Text = "计算组合";
             this.ToolStripMenuItem_CalFolio.Click += new System.EventHandler(this.ToolStripMenuItem_CalFolio_Click);
             // 
             // ToolStripMenuItem_VisualSingleStrategy
             // 
             this.ToolStripMenuItem_VisualSingleStrategy.Name = "ToolStripMenuItem_VisualSingleStrategy";
-            this.ToolStripMenuItem_VisualSingleStrategy.Size = new System.Drawing.Size(173, 22);
+            this.ToolStripMenuItem_VisualSingleStrategy.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_VisualSingleStrategy.Text = "隐藏/显示[单策略]";
             this.ToolStripMenuItem_VisualSingleStrategy.Click += new System.EventHandler(this.ToolStripMenuItem_VisualSingleStrategy_Click);
+            // 
+            // ToolStripMenuItem_Export
+            // 
+            this.ToolStripMenuItem_Export.Name = "ToolStripMenuItem_Export";
+            this.ToolStripMenuItem_Export.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_Export.Text = "导出交易记录";
+            this.ToolStripMenuItem_Export.Click += new System.EventHandler(this.ToolStripMenuItem_ExportClick);
             // 
             // TimeSeriesRenkoQualityFolioControl
             // 
@@ -302,5 +311,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_CalFolio;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_VisualSingleStrategy;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Export;
     }
 }
